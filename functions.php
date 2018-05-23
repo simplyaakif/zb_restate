@@ -69,3 +69,12 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Load Editor functions.
  */
 require get_template_directory() . '/inc/editor.php';
+
+/**
+ * Load Redux framework.
+ */
+if ( file_exists( dirname( __FILE__ ) . '/admin/admin-init.php' ) ) {
+    require_once dirname( __FILE__ ) . '/admin/admin-init.php';
+}
+
+

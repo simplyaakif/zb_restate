@@ -24,7 +24,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 </head>
 
 <body <?php body_class(); ?>>
-
+<div class="ar_topbar">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				Hello World
+			</div>
+			<div class="col-md-6">
+				Hello World
+			</div>
+		</div>
+	</div>
+</div>
 <div class="hfeed site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
