@@ -7,6 +7,8 @@
  * @package understrap
  */
 
+ global $redux_builder_uw_ar_restate;
+
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
 <!DOCTYPE html>
@@ -21,6 +23,18 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
+	<style>
+		body{
+			<?php 
+					echo 'color: '       . $redux_builder_uw_ar_restate['typo_body']['color'] ;
+					echo ';font-weight:'  . $redux_builder_uw_ar_restate['typo_body']['font-style'];
+					echo ';font-family: ' . $redux_builder_uw_ar_restate['typo_body']['font-family'];
+					echo ';Google: '      . $redux_builder_uw_ar_restate['typo_body']['google'];
+					echo ';font-size: '   . $redux_builder_uw_ar_restate['typo_body']['font-size'];
+					echo ';line-height: ' . $redux_builder_uw_ar_restate['typo_body']['line-height']; 
+			?>
+		}
+	</style>
 </head>
 
 <body <?php body_class(); ?>>

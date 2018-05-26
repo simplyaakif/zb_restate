@@ -194,3 +194,35 @@
     /*
      * <--- END SECTIONS
      */
+
+
+
+    // Typogragpy Section for the Whole Website and Details for IT.
+     
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Typography', 'redux-framework-demo' ),
+        'id'     => 'typo',
+        'desc'   => __( 'Fonts for the Whole Site', 'redux-framework-demo' ),
+        'icon'   => 'el el-fontsize',
+        'fields' => array(
+            array(
+                'id'          => 'typo_body',
+                'type'        => 'typography', 
+                'title'       => __('Site Font', 'redux-framework-demo'),
+                'google'      => true, 
+                'font-backup' => true,
+                'output'      => array('h2.site-description'),
+                'units'       =>'px',
+                'subtitle'    => __('Typography options for whole body', 'redux-framework-demo'),
+                'default'     => array(
+                    'color'       => '#333', 
+                    'font-style'  => '700', 
+                    'font-family' => 'Abel', 
+                    'google'      => true,
+                    'font-size'   => '33px', 
+                    'line-height' => '40'
+                ),
+            )
+
+        )
+    ) );

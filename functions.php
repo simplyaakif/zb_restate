@@ -18,7 +18,7 @@ require get_template_directory() . '/inc/setup.php';
 /**
  * Register widget area.
  */
-require get_template_directory() . '/inc/widgets.php';
+// require get_template_directory() . '/inc/widgets.php';
 
 /**
  * Enqueue scripts and styles.
@@ -43,7 +43,7 @@ require get_template_directory() . '/inc/extras.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Custom Comments file.
