@@ -44,7 +44,12 @@
     border: 1px solid #ccc !important;
     padding: 5px 12px !important;
     font-size: 16px !important;
-    margin: auto 3px !important;
+    margin: auto 1px !important;
+    color:white!important;
+}
+
+.foot_social li{
+    margin: 0 !important;
 }
 .header_logo a{
     /* float:right; */
@@ -78,7 +83,7 @@ footer h3{
 }
 
 div.content-area {
-    overflow: visible; 
+    overflow: visible!important; 
 }
 
 .wrapper {
@@ -86,7 +91,102 @@ div.content-area {
 }
 
 .ar_topbar{
-    padding:10px 0px;
+    padding:0px 0px;
     font-size:12px;
 }
 .ar_topbar p{margin:0px 0px;}
+.ar_nav{padding:30px 0px;}
+.navbar-light .navbar-nav .nav-link {
+    text-transform:uppercase;
+}
+.navbar {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: initial;
+}
+
+
+.ar-mb-logo{
+    display:none;
+}
+
+
+@media screen and (max-width:691px){
+    .ar-mb-logo{
+        display:block;
+    }
+    .ar_nav{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width:991px){
+    .navbar .container{
+        max-width: 720px!important;
+    }
+}
+
+.testi-details .row{
+    display: unset!important;
+}
+
+#wrapper-footer{
+    margin-top:20px;
+}
+
+.main-foot{
+    color:white;
+    padding: 50px 0px;
+}
+
+.copy-foot{
+    color:white;
+    padding: 10px 0px;
+}
+
+.footmenu ul li{
+    list-style-type: none;
+    color:white;
+}
+.footmenu a{
+    color:white;
+}
+
+.head_social{
+    color:white;
+    margin-bottom: 0px;
+}
+
+.head_social li{
+    border-left: 1px solid #e6e6e6;
+    margin-right:0 !important;
+    padding:10px 6px;
+    padding-left: 10px;
+}
+.head_social a{
+    font-size: 14px;
+}
+
+.head_social li:first-child {
+    border-left: none;
+}
+.head_social i{
+    padding:20 6px!important;
+    color:white;
+}
+
+.headLeft{
+    padding: 10px 0px;
+}
+
+.breadcrumbs{
+    color:white;
+}
+
+.breadcrumbs h1{
+    color:white;
+    font-weight: 700;
+}

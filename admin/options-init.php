@@ -144,14 +144,36 @@
                 'id'       => 'main-color',
                 'type'     => 'color',
                 'title'    => __('Main Site Color', 'redux-framework-demo'), 
-                'subtitle' => __('Pick a color for the theme (default: #fff).', 'redux-framework-demo'),
+                'subtitle' => __('Pick a color for the theme (default: #000).', 'redux-framework-demo'),
                 'default'  => '#000',
                 'validate' => 'color',
                 'output'    => array(
                     'color' => 'h2, .site-footer, .agent_details i',
-                    'background-color' => '.bar_center h2::after, .bar_left h2::after',
+                    'background-color' => '.bar_center h2::after, .bar_left h2::after,.breadcrumbs',
                 ),
-            )
+            ),
+            array(
+                'id'       => 'ar-bgcolor',
+                'type'     => 'color',
+                'title'    => __('Site Background Color', 'redux-framework-demo'), 
+                'subtitle' => __('Pick a color for the page background (default: #fff).', 'redux-framework-demo'),
+                'default'  => '#fff',
+                'validate' => 'color',
+                'output'    => array(
+                    'background-color' => '.wrapper,body',
+                ),
+            ),
+            array(
+                'id'       => 'ar-logo',
+                'type'     => 'media', 
+                'url'      => true,
+                'title'    => __('Logo', 'redux-framework-demo'),
+                'desc'     => __('Logo Uploader for Site', 'redux-framework-demo'),
+                'subtitle' => __('Main Site Logo', 'redux-framework-demo'),
+                'default'  => array(
+                    'url'=>'http://s.wordpress.org/style/images/codeispoetry.png'
+                ),
+            ),
         )
     ) );
 
@@ -202,19 +224,26 @@
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text Area', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="http://docs.reduxframework.com/core/fields/textarea/" target="_blank">http://docs.reduxframework.com/core/fields/textarea/</a>',
-        'id'         => 'opt-textarea-subsection',
-        'subsection' => true,
-        'fields'     => array(
+        'title'  => __( 'Navbar', 'redux-framework-demo' ),
+        'id'     => 'ar-navbar',
+        'desc'   => __( 'Fonts for the navbar links', 'redux-framework-demo' ),
+        'icon'   => 'el el-fontsize',
+        'fields' => array(
             array(
-                'id'       => 'textarea-example',
-                'type'     => 'textarea',
-                'title'    => __( 'Text Area Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
-            ),
+                'id'          => 'ar-navlinks',
+                'type'        => 'typography', 
+                'title'       => __('Navbar Font', 'redux-framework-demo'),
+                'google'      => true, 
+                'font-backup' => true,
+                'output'      => array('.navbar-light .navbar-nav .nav-link'),
+                'units'       =>'px',
+                'subtitle'    => __('Typography options for navigation links', 'redux-framework-demo'),
+                'default'     => array(
+                    'color'       => '#333', 
+                    
+                ),
+            )
+
         )
     ) );
 
@@ -238,7 +267,7 @@
                 'title'       => __('Site Font', 'redux-framework-demo'),
                 'google'      => true, 
                 'font-backup' => true,
-                'output'      => array('h2.site-description'),
+                'output'      => array('body'),
                 'units'       =>'px',
                 'subtitle'    => __('Typography options for whole body', 'redux-framework-demo'),
                 'default'     => array(
@@ -253,7 +282,253 @@
 
         )
     ) );
+
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Social Media', 'redux-framework-demo' ),
+        'id'     => 'site_sm',
+        'desc'   => __( 'Social Media links for site', 'redux-framework-demo' ),
+        'icon'   => 'el el-facebook',
+        'fields' => array(
+
+            array(
+                'id'       => '1agent_fb',
+                'type'     => 'text',
+                'title'    => __('Agent Fb Page Address', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => '1agent_tw',
+                'type'     => 'text',
+                'title'    => __('Agent Twitter', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => '1agent_li',
+                'type'     => 'text',
+                'title'    => __('Agent Linkedin', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => '1agent_ig',
+                'type'     => 'text',
+                'title'    => __('Agent Instagram', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => '1agent_ytube',
+                'type'     => 'text',
+                'title'    => __('Agent Youtube', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+
+
+            )
+            ) );
+
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Agent Details', 'redux-framework-demo' ),
+        'id'     => 'site_agent',
+        'desc'   => __( 'Real Estate Agent Information', 'redux-framework-demo' ),
+        'icon'   => 'el el-user',
+        'fields' => array(
+            array(
+                'id'       => 'agent_dp',
+                'type'     => 'media',
+                'title'    => __('Agent Picture', 'redux-framework-demo'),
+                'subtitle' => __('Agent picture to be displayed.', 'redux-framework-demo'),
+                'url       => false ',
+                'default'  => array(
+                    'url'=>'http://s.wordpress.org/style/images/codeispoetry.png'
+                ),
+            ),
+            array(
+                'id'       => 'agent_name',
+                'type'     => 'text',
+                'title'    => __('Agent Name', 'redux-framework-demo'),
+                'subtitle' => __('Enter agent Name', 'redux-framework-demo'),
+                'default'  => 'Agent Name'
+            ),
+            array(
+                'id'       => 'agent_subname',
+                'type'     => 'text',
+                'title'    => __('Agent Title', 'redux-framework-demo'),
+                'subtitle' => __('Enter Agent Title', 'redux-framework-demo'),
+                'default'  => 'Agent Title'
+            ),
+            array(
+                'id'               => 'agent_bio',
+                'type'             => 'editor',
+                'title'            => __('Agent Details', 'redux-framework-demo'), 
+                'subtitle'         => __('Biography text would go here.', 'redux-framework-demo'),
+                'default'          => 'Agent Biography.',
+                'args'   => array(
+                    'teeny'            => true,
+                    'textarea_rows'    => 10
+                )
+            ),
+            array(
+                'id'       => 'agent_address',
+                'type'     => 'text',
+                'title'    => __('Agent Office Address', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => 'Some address'
+            ),
+            array(
+                'id'       => 'agent_phone',
+                'type'     => 'text',
+                'title'    => __('Agent Phone Number', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => '000-000000'
+            ),
+            array(
+                'id'       => 'agent_email',
+                'type'     => 'text',
+                'title'    => __('Agent Email Address', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => 'email@address.com'
+            ),
+            array(
+                'id'       => 'agent_website',
+                'type'     => 'text',
+                'title'    => __('Agent Website Address', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => 'www.website.com'
+            ),
+            array(
+                'id'       => 'agent_fb',
+                'type'     => 'text',
+                'title'    => __('Agent Fb Page Address', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'agent_tw',
+                'type'     => 'text',
+                'title'    => __('Agent Twitter', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'agent_li',
+                'type'     => 'text',
+                'title'    => __('Agent Linkedin', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'agent_ig',
+                'type'     => 'text',
+                'title'    => __('Agent Instagram', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+            array(
+                'id'       => 'agent_ytube',
+                'type'     => 'text',
+                'title'    => __('Agent Youtube', 'redux-framework-demo'),
+                'subtitle' => __('You can leave it blank as well', 'redux-framework-demo'),
+                'default'  => ''
+            ),
+
+        )
+    ) );
      
+
+
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Footer', 'redux-framework-demo' ),
+        'id'     => 'foot',
+        'desc'   => __( 'Footer for the Site', 'redux-framework-demo' ),
+        'icon'   => 'el el-edit',
+        'fields' => array(
+            array(
+                'id'       => 'bgfoot',
+                'type'     => 'color',
+                'title'     => __('Footer Background Color', 'redux-framework-demo'),
+                'subtitle'  => __('Pick a background color.', 'redux-framework-demo'),
+                'default'   => '#12171b ',
+                'output'    => array('background-color' => '.main-foot')
+            ),
+            array(
+                'id'       => 'ar-ftlogo',
+                'type'     => 'media', 
+                'url'      => true,
+                'title'    => __('Footer Logo', 'redux-framework-demo'),
+                'desc'     => __('Logo Uploader for Site Footer' , 'redux-framework-demo'),
+                'subtitle' => __('Main Site Logo', 'redux-framework-demo'),
+                'default'  => array(
+                    'url'=>'http://s.wordpress.org/style/images/codeispoetry.png'
+                ),
+            ),
+            array(
+                'id'               => 'ft-deseditor',
+                'type'             => 'editor',
+                'title'            => __('Footer Description Area', 'redux-framework-demo'), 
+                'subtitle'         => __('Description about site', 'redux-framework-demo'),
+                'default'          => 'Real Estate Site',
+                'args'   => array(
+                    'teeny'            => true,
+                    'textarea_rows'    => 10
+                )
+            ),
+            array(
+                'id'               => 'ft-address',
+                'type'             => 'text',
+                'title'            => __('Office Address', 'redux-framework-demo'), 
+                'subtitle'         => __('Office Postal', 'redux-framework-demo'),
+                'default'          => 'Real Estate Site',
+            ),
+            array(
+                'id'               => 'ft-phone',
+                'type'             => 'text',
+                'title'            => __('Phone Number', 'redux-framework-demo'), 
+                'subtitle'         => __('Office Phone Number', 'redux-framework-demo'),
+                'default'          => 'Real Estate Site',
+            ),
+            array(
+                'id'               => 'ft-mail',
+                'type'             => 'text',
+                'title'            => __('Mail Address', 'redux-framework-demo'), 
+                'subtitle'         => __('Office Mail Address', 'redux-framework-demo'),
+                'default'          => 'Real Estate Site',
+            ),
+
+        )
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Sub Footer', 'redux-framework-demo' ),
+        'id'     => 'subfoot',
+        'desc'   => __( 'Lower Footer for the Site', 'redux-framework-demo' ),
+        'icon'   => 'el el-edit',
+        'subsection' => true,
+        'fields' => array(
+            array(
+                'id'       => 'bgsubfoot',
+                'type'     => 'color',
+                'title'     => __('Footer Background Color', 'redux-framework-demo'),
+                'subtitle'  => __('Pick a background color.', 'redux-framework-demo'),
+                'default'   => '#12171b ',
+                'output'    => array('background-color' => '.copy-foot')
+            ),
+            array(
+                'id'       => 'txsubfoot',
+                'type'     => 'text',
+                'title'     => __('Footer Text', 'redux-framework-demo'),
+                'subtitle'  => __('Copyright text goes here', 'redux-framework-demo'),
+                'default'   => '© Copyright 2017 -2018 Matt Russell. All rights reserved.',
+            )
+
+        )
+    ) );
 
 
                 // Css Section
@@ -277,3 +552,6 @@
 
         )
     ) );
+
+
+
