@@ -24,14 +24,14 @@
     $args = array(
         'opt_name' => 'redux_builder_uw_ar_restate',
         'use_cdn' => TRUE,
-        'display_name' => 'Zigbar Real Estate',
+        'display_name' => 'AR Real Estate',
         'display_version' => '1.01',
         'page_slug' => 'zigbar_realestate',
-        'page_title' => 'Zigbar Real Estate',
+        'page_title' => 'AR Real Estate',
         'update_notice' => TRUE,
         'intro_text' => 'This is made for Real Estate Site',
         'menu_type' => 'menu',
-        'menu_title' => 'Zigbar Real Estate',
+        'menu_title' => 'AR Real Estate',
         'allow_sub_menu' => TRUE,
         'page_parent_post_type' => 'your_post_type',
         'page_priority' => '130',
@@ -141,36 +141,63 @@
         'icon'   => 'el el-home',
         'fields' => array(
             array(
-                'id'       => 'opt-text',
-                'type'     => 'text',
-                'title'    => __( 'Example Text', 'redux-framework-demo' ),
-                'desc'     => __( 'Example description.', 'redux-framework-demo' ),
-                'subtitle' => __( 'Example subtitle.', 'redux-framework-demo' ),
+                'id'       => 'main-color',
+                'type'     => 'color',
+                'title'    => __('Main Site Color', 'redux-framework-demo'), 
+                'subtitle' => __('Pick a color for the theme (default: #fff).', 'redux-framework-demo'),
+                'default'  => '#000',
+                'validate' => 'color',
+                'output'    => array(
+                    'color' => 'h2, .site-footer, .agent_details i',
+                    'background-color' => '.bar_center h2::after, .bar_left h2::after',
+                ),
             )
         )
     ) );
 
-    Redux::setSection( $opt_name, array(
-        'title' => __( 'Basic Fields', 'redux-framework-demo' ),
-        'id'    => 'basic',
-        'desc'  => __( 'Basic fields as subsections.', 'redux-framework-demo' ),
-        'icon'  => 'el el-home'
-    ) );
 
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="http://docs.reduxframework.com/core/fields/text/" target="_blank">http://docs.reduxframework.com/core/fields/text/</a>',
+        'title'      => __( 'Top Bar', 'redux-framework-demo' ),
+        'desc'       => __( 'Settings for the Top Bar', 'redux-framework-demo' ),
         'id'         => 'opt-text-subsection',
         'subsection' => true,
         'fields'     => array(
             array(
-                'id'       => 'text-example',
-                'type'     => 'text',
-                'title'    => __( 'Text Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
+                'id'       => 'tb-bgcolor',
+                'type'     => 'color',
+                'title'    => __( 'Top Bar background color', 'redux-framework-demo' ),
+                'subtitle' => __( 'Set the color for the background', 'redux-framework-demo' ),
+                // 'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                'default'  => '#fff',
+                'validate' => 'color',
+                'output'    => array(
+                    'background-color' => '.ar_topbar',
+                ),
             ),
+            array(
+                'id'       => 'tb-color',
+                'type'     => 'color',
+                'title'    => __( 'Top Bar text color', 'redux-framework-demo' ),
+                'subtitle' => __( 'Set the color for the text', 'redux-framework-demo' ),
+                // 'desc'     => __( 'Field Description', 'redux-framework-demo' ),
+                'default'  => '#000',
+                'validate' => 'color',
+                'output'    => array(
+                    'color' => '.ar_topbar',
+                ),
+            ),
+            array(
+                'id'               => 'tb-editor',
+                'type'             => 'editor',
+                'title'            => __('Top Bar Right Section', 'redux-framework-demo'), 
+                'subtitle'         => __('Enter your text for right topbar', 'redux-framework-demo'),
+                'default'          => 'Real Estate Site',
+                'args'   => array(
+                    'teeny'            => true,
+                    'textarea_rows'    => 10
+                )
+            )
+
         )
     ) );
 
@@ -222,6 +249,30 @@
                     'font-size'   => '33px', 
                     'line-height' => '40'
                 ),
+            )
+
+        )
+    ) );
+     
+
+
+                // Css Section
+
+    Redux::setSection( $opt_name, array(
+        'title'  => __( 'Custom Style', 'redux-framework-demo' ),
+        'id'     => 'css',
+        'desc'   => __( 'CSS for the Site', 'redux-framework-demo' ),
+        'icon'   => 'el el-css',
+        'fields' => array(
+            array(
+                'id'       => 'css_editor',
+                'type'     => 'ace_editor',
+                'title'    => __('CSS Code', 'redux-framework-demo'),
+                'subtitle' => __('Paste your CSS code here.', 'redux-framework-demo'),
+                'mode'     => 'css',
+                'theme'    => 'monokai',
+                'desc'     => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
+                'default'  => "#header{\nmargin: 0 auto;\n}"
             )
 
         )

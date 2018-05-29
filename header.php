@@ -34,10 +34,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 					echo ';line-height: ' . $redux_builder_uw_ar_restate['typo_body']['line-height']; 
 			?>
 		}
+		<?php  
+		echo $redux_builder_uw_ar_restate['css_editor'];
+
+		?>
 	</style>
 </head>
 
 <body <?php body_class(); ?>>
+
 <div class="ar_topbar">
 	<div class="container">
 		<div class="row">
@@ -45,7 +50,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				Hello World
 			</div>
 			<div class="col-md-6">
-				Hello World
+			<?php echo $redux_builder_uw_ar_restate['tb-editor']; ?>
 			</div>
 		</div>
 	</div>

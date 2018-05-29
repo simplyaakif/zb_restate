@@ -1,0 +1,92 @@
+.bar_center h2::after{
+    height: 4px;
+    width: 200px;
+    content: "";
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    margin-bottom:20px;
+    
+}
+
+
+.clinet-img{
+    display:none;
+}
+
+.quotes .ut-rq-icon{
+    display:none!important;
+}
+
+.foot_details{
+    margin-left:auto;
+    margin-right:auto;
+    color:#fff;
+    font-size:20px;
+}
+.agent_details i{
+
+}
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+     background-color: #f8f8f8; 
+}  
+.agent_social a{
+    border: 1px solid #002b48 !important;
+    padding: 5px 12px !important;
+    font-size: 20px !important;
+    margin: auto 3px !important;
+}
+
+.foot_social a{
+    border: 1px solid #ccc !important;
+    padding: 5px 12px !important;
+    font-size: 16px !important;
+    margin: auto 3px !important;
+}
+.header_logo a{
+    /* float:right; */
+}
+.header_logo img{
+    /* float:right; */
+}
+
+.bar_left h2::after{
+    height: 4px;
+    width: 160px;
+    content: "";
+    display: block;
+    margin-top: 12px;
+    margin-bottom:20px;
+    
+}
+.header-center .topbar-widget .et-follow-buttons a i {
+    opacity: 1;
+}
+
+h2{
+    text-transform:uppercase;
+}
+h3{
+    text-transform:uppercase;
+}
+
+footer h3{
+    font-size:18px;
+}
+
+div.content-area {
+    overflow: visible; 
+}
+
+.wrapper {
+    padding: 0px 0;
+}
+
+.ar_topbar{
+    padding:10px 0px;
+    font-size:12px;
+}
+.ar_topbar p{margin:0px 0px;}
